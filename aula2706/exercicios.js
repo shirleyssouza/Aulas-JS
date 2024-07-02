@@ -1,5 +1,31 @@
 /*1. Crie uma função que recebe um array com os nomes dos alunos de uma turma, e outro array que recebe a lista de presença com os nomes. Retorne uma lista com quais alunos faltaram.*/
-//PENDENTE
+
+function listarAusentes(alunos, lista) {
+    let ausentes = [];
+
+    for (let nome of alunos) {
+        if (lista.includes(nome)) {
+            console.log(`O aluno ${nome} está presente.`);
+        } else {
+            console.log(`O aluno ${nome} está ausente.`);
+            ausentes.push(nome);
+        }
+    }
+
+    return ausentes;
+}
+
+let turma = [
+    "José Almir",
+    "Gabriel Braga",
+    "Victor Icoma",
+    "Igor Gondim",
+    "Bismark",
+];
+let presenca = ["Gabriel Braga", "Victor Icoma", "Bismark"];
+
+let faltas = listarAusentes(turma, presenca);
+console.log(faltas);
 
 /*2. Crie uma função que recebe um array de números e retorna um array com todos os valores elevados ao quadrado.*/
 
@@ -56,7 +82,18 @@ let nomes = ["maria", "rita", "fellipe", "marcelo", "diego", "matheus"];
 console.log(nomes);
 
 /*6. Crie um array com 7 números. Percorra e indique qual o maior número deles.*/
-// PENDENTE
+
+function quest6() {
+    let numeros = [-1, 4, 9, 80, -100, 0, 49];
+    let maior = numeros[0];
+    for(let i = 1 ; i < numeros.length; i++) {
+        if(numeros[i] > maior) {
+            maior = numeros[i];
+        }
+    }
+    console.log(maior);
+}
+quest6();
 
 /*7. Crie uma função que extrai os dígitos verificadores de um cpf. Ex: "056.985.990-23" -> "23". Retorne apenas os dois últimos dígitos.*/
 
@@ -65,7 +102,7 @@ function quest7(cpf) {
     return array.slice(-2).join("");
 }
 
-console.log(quest7("111.777.666.25"));
+console.log(quest7("111.777.666-25"));
 
 /*8. Crie uma função que inverte uma string. Retorna ela invertida.*/
 
@@ -78,9 +115,10 @@ console.log(quest8("comida"));
 /*9. Escreva uma função que receba uma palavra e um número. Retorne a palavra repetida a quantidade de vezes indicada pelo segundo parâmetro. Exemplo: repetir("batata", 3) -> "batatabatatabatata". OBS: Utilize um loop para resolver.*/
 
 function quest9(palavra, num) {
+    //return palavra.repeat(num);
     let cont = 0;
     let string = "";
-    while(cont < num) {
+    while (cont < num) {
         string = string + palavra;
         cont++;
     }
@@ -88,9 +126,11 @@ function quest9(palavra, num) {
 }
 console.log(quest9("computador", 5));
 
+
 /*10. Escreva uma função que receba duas strings e retorne true se elas forem iguais ou false caso contrário.*/
 
 function quest10(str1, str2) {
+    // return str1 === str2
     if(str1 === str2) {
         return true;
     } else {
@@ -112,10 +152,10 @@ console.log(quest11(data, "/"));
 
 function quest12(array, busca, msg_retorno) {
     if(array.includes(busca)) {
-        console.log(busca);
+        return busca;
     } else {
-        console.log(msg_retorno);
+        return msg_retorno;
     }
 }
 let musicas = ["amanhã", "desalento", "carinhoso", "amado", "estrela"];
-quest12(musicas, "carinhoso", "Não disponivel!");
+console.log(quest12(musicas, "carinhoso", "Não disponivel!"));
